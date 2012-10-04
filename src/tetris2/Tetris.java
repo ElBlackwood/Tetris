@@ -82,7 +82,11 @@ public class Tetris implements ActionListener{
 					break;
 			case 1: currentShape = new StickShape();
 					break;
+<<<<<<< HEAD
 			case 2: currentShape = new ZShape();
+=======
+			case 2: currentShape = new LShape();
+>>>>>>> origin/cal
 					break;
 		}
 
