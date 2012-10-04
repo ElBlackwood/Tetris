@@ -69,7 +69,7 @@ public class Tetris implements ActionListener{
 	public void spawnShape(){
 		//choose a random shape from shapes list
 		Random r = new Random();
-		int randomInt = r.nextInt(2);
+		int randomInt = r.nextInt(3);
 		//call shape class and return the shape.
 		
 		//check for complete rows:		shapes[randomInt]
@@ -79,6 +79,8 @@ public class Tetris implements ActionListener{
 			case 0: currentShape = new BlockShape();
 					break;
 			case 1: currentShape = new StickShape();
+					break;
+			case 2: currentShape = new LShape();
 					break;
 		}
 
