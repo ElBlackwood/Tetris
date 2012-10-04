@@ -61,7 +61,7 @@ public class Tetris implements ActionListener{
 		//initialise the board array
 		arrayInit(boardArray);
 		//calls actionPerformed() every second
-		Timer timer = new Timer(100, this);
+		Timer timer = new Timer(200, this);
 		timer.start();
 		
 	}
@@ -69,7 +69,7 @@ public class Tetris implements ActionListener{
 	public void spawnShape(){
 		//choose a random shape from shapes list
 		Random r = new Random();
-		int randomInt = r.nextInt(2);
+		int randomInt = r.nextInt(3);
 		//call shape class and return the shape.
 		
 		//check for complete rows:		shapes[randomInt]
@@ -79,6 +79,8 @@ public class Tetris implements ActionListener{
 			case 0: currentShape = new BlockShape();
 					break;
 			case 1: currentShape = new StickShape();
+					break;
+			case 2: currentShape = new ZShape();
 					break;
 		}
 
@@ -160,12 +162,6 @@ public class Tetris implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (spawning==true){
 			spawnShape();
-			try {
-				Thread.sleep(300);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 			spawning = false;
 		} else{
 			currentShape.moveDown();
@@ -174,7 +170,7 @@ public class Tetris implements ActionListener{
 		
 		reComputeBoard();
 		updateGui();
-		//displayBoard();
+		displayBoard();
 		
 	}
 

@@ -27,14 +27,7 @@ public class StickShape extends ShapeInterface{
 					&& Tetris.boardArray[point2.get(0) + 1][point2.get(1)] != 1
 					&& Tetris.boardArray[point3.get(0) + 1][point3.get(1)] != 1
 					&& Tetris.boardArray[point4.get(0) + 1][point4.get(1)] != 1) {
-				Tetris.boardArray[point1.get(0)][point1.get(1)] = 0;
-				Tetris.boardArray[point2.get(0)][point2.get(1)] = 0;
-				Tetris.boardArray[point3.get(0)][point3.get(1)] = 0;
-				Tetris.boardArray[point4.get(0)][point4.get(1)] = 0;
-				point1.set(0, point1.get(0) + 1);
-				point2.set(0, point2.get(0) + 1);
-				point3.set(0, point3.get(0) + 1);
-				point4.set(0, point4.get(0) + 1);
+				moveAllPointsDown();
 
 			} else {
 				Tetris.spawning = true;
@@ -102,9 +95,10 @@ public class StickShape extends ShapeInterface{
 	}
 
 	public void moveRight() {
-		if (rotated){
+		if (rotated) {
 			try {
-				if (point1.get(0)>=0 && Tetris.boardArray[point1.get(0)][point1.get(1)+1]!=1){
+				if (point1.get(0) < 10
+						&& Tetris.boardArray[point1.get(0)][point1.get(1) + 1] != 1) {
 					Tetris.boardArray[point4.get(0)][point4.get(1)] = 0;
 					point1.set(1, point1.get(1) + 1);
 					point2.set(1, point2.get(1) + 1);
@@ -152,15 +146,13 @@ public class StickShape extends ShapeInterface{
 		}
 
 	}
+
 	private void rotateStickLeft() {
-		if (point4.get(1) - 2 > 0
+		if (point4.get(1) - 2 > 0 && point4.get(0) < 19
 				&& Tetris.boardArray[point1.get(0) + 1][point1.get(1) + 1] != 1
 				&& Tetris.boardArray[point3.get(0) - 1][point3.get(1) - 1] != 1
 				&& Tetris.boardArray[point4.get(0) - 2][point4.get(1) - 2] != 1) {//check that there is space to rotate left
-			Tetris.boardArray[point1.get(0)][point1.get(1)] = 0;
-			Tetris.boardArray[point2.get(0)][point2.get(1)] = 0;
-			Tetris.boardArray[point3.get(0)][point3.get(1)] = 0;
-			Tetris.boardArray[point4.get(0)][point4.get(1)] = 0;
+			zeroAllPoints();
 
 			Tetris.boardArray[point1.get(0) + 1][point1.get(1) + 1] = 1;
 			Tetris.boardArray[point2.get(0)][point2.get(1)] = 1;
@@ -187,10 +179,7 @@ public class StickShape extends ShapeInterface{
 				&& Tetris.boardArray[point3.get(0) + 1][point3.get(1) + 1] != 1
 				&& Tetris.boardArray[point4.get(0) + 2][point4.get(1) + 2] != 1
 				&& Tetris.boardArray[point1.get(0) - 1][point1.get(1) - 1] != 1) {
-			Tetris.boardArray[point1.get(0)][point1.get(1)] = 0;
-			Tetris.boardArray[point2.get(0)][point2.get(1)] = 0;
-			Tetris.boardArray[point3.get(0)][point3.get(1)] = 0;
-			Tetris.boardArray[point4.get(0)][point4.get(1)] = 0;
+			zeroAllPoints();
 
 			Tetris.boardArray[point1.get(0) - 1][point1.get(1) - 1] = 1;
 			Tetris.boardArray[point2.get(0)][point2.get(1)] = 1;
