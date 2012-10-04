@@ -19,6 +19,8 @@ public class Tetris implements ActionListener{
 	public static boolean spawning = true;
 	public Gui g;
 	public static int score = 0;
+	public static Timer timer;
+	public static boolean timerRunning = true;
 	//typing shit to try to commit
 	
 	public static void main(String[] args) {							//TO DO:
@@ -61,7 +63,7 @@ public class Tetris implements ActionListener{
 		//initialise the board array
 		arrayInit(boardArray);
 		//calls actionPerformed() every second
-		Timer timer = new Timer(200, this);
+		timer = new Timer(300, this);
 		timer.start();
 		
 	}
@@ -110,17 +112,17 @@ public class Tetris implements ActionListener{
 					if (col == 9){
 						score+=10;									//this is where the score is incremented, 10 points per row cleared
 						Gui.scoreInfo.setBackground(Color.YELLOW);
-						Gui.scoreInfo.setText("Score: "+score);
+						Gui.scoreInfo.setText("Score: " + score);
 						//if row is complete, loop through boardArray from that row making points equal to the one above them.
-						for (int rowNew=row; rowNew>0;rowNew--){
-							for (int colNew =0; colNew<10; colNew++){
-								
-								boardArray[rowNew][colNew] = boardArray[rowNew-1][colNew];
+						for (int rowNew = row; rowNew > 0; rowNew--) {
+							for (int colNew = 0; colNew < 10; colNew++) {
+
+								boardArray[rowNew][colNew] = boardArray[rowNew - 1][colNew];
 							}
 						}
-						
+
 					}
-				}else{
+				} else {
 					runOfOnes = false;
 				}
 			}

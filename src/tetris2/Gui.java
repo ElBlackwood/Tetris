@@ -56,6 +56,18 @@ public class Gui extends JFrame implements KeyListener {
 	    	Tetris.currentShape.rotate();
 	    	
 	    }
+	    if (arg0.getKeyChar() == KeyEvent.VK_ENTER){
+	    	if (Tetris.timerRunning){
+	    	Tetris.timer.stop();
+	    	Tetris.timerRunning = false;
+	    	scoreInfo.setText("PAUSED!");}
+	    	else{
+	    		Tetris.timer.start();
+	    		Tetris.timerRunning = true;
+	    		Gui.scoreInfo.setText("Score: " + Tetris.score);
+	    	}
+	    	
+	    }
 		
 	}
 
