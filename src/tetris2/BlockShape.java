@@ -88,4 +88,10 @@ public class BlockShape extends ShapeInterface{
 		}
 	}
 
+	@Override
+	public void rotate() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -16,12 +16,9 @@ public abstract class ShapeInterface {
 	ArrayList<Integer> point3 = new ArrayList<Integer>();
 	ArrayList<Integer> point4 = new ArrayList<Integer>();
 	
-	void moveDown() {
-	}
-	void moveLeft() {
-	}
-	void moveRight() {
-	}
-	void rotate() {
-	}
+	public abstract void moveDown();
+	public abstract void moveLeft();
+	public abstract void moveRight();
+	public abstract void rotate();
+
 }
